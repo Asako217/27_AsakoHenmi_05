@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class JavaKadai1_2 {
     public static void main(String[] args){
@@ -6,26 +7,24 @@ public class JavaKadai1_2 {
         int score = 0; // total score
         int eachScore;
         int count = 0;
-        String[] question = { "私はドイツが好きです", "私はよく食べます", "私は旅行が好きです", "私はよく寝ます", "私はNetflixをよく見ます"}; // question
+        String[] question = { "私はドイツが好きです", "私はよく食べます", "私は旅行が好きです", "私はよく寝ます", "私はFRIENDSをよく見ます"}; // question
         String answer = "1:あてはまらない, 2:あまりあてはまらない, 3:まあまあ当てはまる, 4:当てはまる" ; //answer
         Scanner scanner = new Scanner(System.in); // for scan
 
-	        /*for(int i = 0; i < 5; i++) {
-
-	        	System.out.println(question[i]);
-	        	System.out.println(answer);
-	        	int eachScore = scanner.nextInt();
-	        	score += eachScore;
-	        }*/
 
         while(true) {
-
             if(count == 5)
                 break;
 
-            System.out.println(question[count]);
+            Random rand = new Random();
+            int num = rand.nextInt(4);
+            System.out.println(question[num]); //ランダムに質問を出す
+
+//            System.out.println(question[count]);//ランダムに質問を出す時はいらない
             System.out.println("Please enter your answer:(any number except 1~4 to quit)");
             eachScore = scanner.nextInt();
+
+
 
             if(eachScore > 0 && eachScore < 5) {
                 score += eachScore;
